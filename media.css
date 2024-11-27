@@ -1,0 +1,44 @@
+@media (max-width:1024px) {
+    .head_btn p {
+        display: none;
+    }
+
+    .top_head {
+        padding: 0 10px;
+    }
+
+    section {
+        padding: 0 10px;
+    }
+
+    .bottom_head {
+        padding: 30px 0 10px 25%;
+    }
+
+    .head_2 {
+        gap: 7px;
+        width: 60%;
+    }
+
+    .head_3 {
+        gap: 1%;
+    }
+
+    .grid_dscr {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.1%;
+    }
+
+    .foot_container {
+        padding: 10px;
+    }
+
+    .box_left {
+        height: 400px;
+    }
+
+    .box_right {
+        height: 400px;
+    }
+}
+
