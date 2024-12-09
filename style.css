@@ -166,18 +166,18 @@ header {
 
 .bottom_head {
   position: absolute;
-  width: 87%;
+  width: 100%;
   display: flex;
   align-items: baseline;
   flex-direction: column;
-  padding: 40px 0 10px 20%;
+  padding: 70px 0 10px 15%;
   gap: 7px;
   font-size: 25px;
   font-weight: 700;
   transition: 233ms;
   z-index: 2;
   background-color: #fffffff0;
-  top: -1000%;
+  top: -100%;
   transition: top 0.5s ease;
   
 
@@ -236,6 +236,10 @@ header {
 
 /* \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
 
+.swiper {
+  height: 400px;
+}
+
 .swiper_section {
   margin-top: 40px;
 }
@@ -246,11 +250,11 @@ header {
 }
 
 .swiper-button-prev {
-  left: 10px;
+  padding: 0 3px 0 0;
 }
 
 .swiper-button-next {
-  right: 10px;
+    padding: 0 0 0 3px;
 }
 
 .swiper-pagination-home {
@@ -259,12 +263,15 @@ header {
 }
 
 .swiper-button {
+  background-color: #cccccc81;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 60px !important;
+  height: 60px !important;
 }
 
-
+.swiper_scrol {
+  padding: 10px;
+}
 /* \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
 
 .container_grid {
@@ -333,9 +340,10 @@ header {
 }
 
 .pruductParams {
-  height: 39%;
+  height: 35% !important;
   padding: 0 7px 0 10px;
   position: relative;
+  overflow: hidden;
 }
 
 .title {
@@ -921,4 +929,47 @@ td {
 
 .date_2::before {
   content: 'Доставка ';
+}
+
+/* =========================================================================================== */
+
+.singIn_container {
+  margin: 30px auto 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.singIn_form {
+  width: 1440px;
+  border: 1px solid #0000004e;
+  border-radius: 20px;
+  padding: 30px 20px;
+}
+
+.singIn_box {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 30px 0;
+  gap: 25px;
+}
+
+.singIn_inp {
+  background-color: transparent;
+  border: 2px solid #5e5e5e9d; 
+  color: #000;
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-size: 17px;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.singIn_btn {
+  padding: 15px 0;
+  background-color: #7000FF;
+  width: 250px;
+  font-size: 17px;
+  color: #fff;
+  border-radius: 10px;
+  margin-left: 550px;
 }

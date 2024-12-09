@@ -85,15 +85,15 @@ export function createElement(item) {
 
 }
 // \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-    export function elemSearch(item) {
-        const createElement = (type, className, className2, src = '', text = '') => {
-            let elem = document.createElement(type);
-            if (className) elem.classList.add(className);
-            if (className2) elem.classList.add(className2);
-            if (src) elem.src = src;
-            if (text) elem.textContent = text;
-            return elem;
-        };
+export function elemSearch(item) {
+    const createElement = (type, className, className2, src = '', text = '') => {
+        let elem = document.createElement(type);
+        if (className) elem.classList.add(className);
+        if (className2) elem.classList.add(className2);
+        if (src) elem.src = src;
+        if (text) elem.textContent = text;
+        return elem;
+    };
 
     let gridelem = createElement('div', 'searchElem');
     let productImgBox = createElement('div', 'productImgBox', 'searchproductImgBox');

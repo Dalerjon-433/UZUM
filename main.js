@@ -11,13 +11,12 @@ import { header } from "./components/header";
 
 header()
 footer();
-
+// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 let num = 0;
 let products = getData('goods');
 
 Promise.all([products])
     .then(([products]) => {
-        // Фильтруем товары с рейтингом >= 4.5
         let rating_res = products.filter(item => item.rating >= 4.5);
         reload(
             rating_res.slice(num, num + 10),
@@ -29,17 +28,18 @@ Promise.all([products])
         if (show_more) {
             show_more.onclick = () => {
                 num += 10;
-                if (num >= rating_res.length) {
-                    show_more.style.display = 'none'; 
-                } else {
-                    reload(
-                        rating_res.slice(num, num + 10),
-                        'grid_dscr',
-                        createElement
-                    );
-                }
-            };
+
+            reload(
+                rating_res.slice(num, num + 10),
+                'grid_dscr',
+                createElement
+            );
+
+        if (num + 10 >= rating_res.length) {
+            show_more.style.display = 'none';
         }
+    };
+}
 
         let price_res = products.filter(item => item.salePercentage > 30);
         reload(
@@ -56,8 +56,7 @@ Promise.all([products])
     .catch(error => {
         console.error('Ошибка при загрузке данных:', error);
     });
-
-
+// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
     const swiper = new Swiper('.swiper', {
         modules: [Navigation, Pagination, Autoplay],
         direction: 'horizontal',
@@ -90,7 +89,7 @@ Promise.all([products])
             },
         }
     });
-    
+// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ 
     const swiper_scrol = new Swiper('.swiper_scrol', {
         modules: [ Autoplay],
         direction: 'horizontal',

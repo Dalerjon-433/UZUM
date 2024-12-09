@@ -50,8 +50,7 @@ let searchImg = document.querySelector('.searchBtnImg');
 let searchBtn = document.querySelector('.search_btn');
 let body = document.querySelector('body');
 let bk_head = document.querySelector('.back_head');
-let favoritesBtn = document.querySelectorAll(".favorites")
-
+// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 function debounce(func, wait) {
   let timeout;
   return function (...args) {
@@ -60,7 +59,7 @@ function debounce(func, wait) {
     timeout = setTimeout(() => func.apply(context, args), wait);
   };
 }
-
+// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 searchBtn.onclick = () => {
   if (searchCont.style.display == 'none') {
     bk_head.style.display = 'block';
@@ -74,7 +73,7 @@ searchBtn.onclick = () => {
     searchImg.src = '/211817_search_strong_icon (1).png'
   }
 }
-
+// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 searchInp.addEventListener('keyup', debounce(async () => {
   try {
     const res = await getData('goods');
@@ -100,6 +99,10 @@ searchInp.addEventListener('keyup', debounce(async () => {
 // \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 document.querySelectorAll('.favorites').forEach(elem => elem.onclick = () => {
     window.location.href = '/pages/favorites/'
+})
+
+document.querySelectorAll('.login').forEach(elem => elem.onclick = () => {
+  window.location.href = '/pages/singIn/'
 })
 
 for (let item of hrefPrd) {
@@ -137,21 +140,8 @@ let cartItems = JSON.parse(localStorage.getItem('reviewItems')) || [];
     }
   }
 
-  // for (const elem of favoritesBtn) {
-  //   elem.onclick = () => {
-  //     window.location.href = '/pages/favorites/'
-  //   }
-
-  //   if (cartItems.length) {
-  //     let span = document.createElement('span');
-  //     span.classList.add('head_span');
-  //     span.textContent = cartItems.length;
-  //     elem.append(span)
-  //   }
-  // }
-
-      let logo = document.querySelector(".logo")
-      logo.onclick = () => {
-        window.location.href = "/"
-      }
+  let logo = document.querySelector(".logo")
+    logo.onclick = () => {
+    window.location.href = "/"
+  }
 }

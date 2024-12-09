@@ -148,7 +148,7 @@ function createPrdRight() {
     document.querySelector('.all_price').textContent = totalPrice.toLocaleString('ru-RU') + ' сум';
     document.querySelector('.concl').textContent = totalPriceSale.toLocaleString('ru-RU') + ' сум';
 }
-
+// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 document.querySelector('.buy').onclick = () => {
     localStorage.setItem('reviewItems', JSON.stringify([]));
     cartItems = [];

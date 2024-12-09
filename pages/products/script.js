@@ -18,16 +18,28 @@ let globalLikedItems = JSON.parse(localStorage.getItem('likedItems')) || [];
 
 Promise.all([products])
     .then(([products]) => {
-        let result = products.filter(item => item.id === id);
+        // Проверяем, что данные загружены
+        if (!products || products.length === 0) {
+            console.error("No products available");
+            return;
+        }
+        
+        console.log(products);  // Выводим список товаров для отладки
+
+        // Фильтруем товар по id
+        let result = products.filter(item => item.id === parseInt(id));  // Убедитесь, что id числа
+        console.log(result);  // Для отладки, выводим найденный товар
+        
         if (result.length > 0) {
             productCreate(result[0]);
             let res_similar = products.filter(item => item.type === result[0].type);
             reload(res_similar, 'swiper-wrapper-similar', createElement);
         } else {
-            console.error("Product not found", error);
+            console.error("Product not found");
         }
     })
     .catch((error) => console.error(error));
+
 // \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 function productCreate(obj) {
     let i = obj.colvo || 1;
@@ -100,7 +112,7 @@ function productCreate(obj) {
     let cartItems = JSON.parse(localStorage.getItem('reviewItems')) || [];
     let isInCart = cartItems.some(item => item.id === obj.id);
 
-    updateLikeButton(isLiked);
+    updateLikeIcon(isLiked);
     updateCartButton(isInCart);
 
     likebtn.onclick = async () => {
@@ -109,7 +121,9 @@ function productCreate(obj) {
         localStorage.setItem('likedItems', JSON.stringify(globalLikedItems));
 
         try {
-            const isLiked = globalLikedItems.some(likedItem => likedItem.id === item.id);
+            const itemId = likebtn.getAttribute('data-id'); 
+        const item = { id: itemId};
+            let isLiked = globalLikedItems.some(likedItem => likedItem.id === item.id);
             if (isLiked) {
                 globalLikedItems = globalLikedItems.filter(likedItem => likedItem.id !== item.id);
             } else {
@@ -139,7 +153,7 @@ function productCreate(obj) {
         updateCartButton(isInCart);
     };
 // \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-    function updateLikeButton(isLiked) {
+    function updateLikeIcon(isLiked) {
         if (isLiked) {
             likebtn.classList.add('active');
             likebtn.textContent = 'В избранном';
